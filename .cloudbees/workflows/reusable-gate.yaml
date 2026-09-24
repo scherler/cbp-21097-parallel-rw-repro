@@ -1,0 +1,22 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: reusable-gate
+on:
+  workflow_call: {}
+
+jobs:
+  approve:
+    environment: cbp-21097-manual-gate
+    steps:
+      - name: Waiting for approval that will never come
+        uses: docker://alpine:3.19
+        shell: sh
+        run: echo "waiting for manual approval (CBP-21097 repro)"
+
+  finalize:
+    needs: [approve]
+    steps:
+      - name: Finalize (should never run)
+        uses: docker://alpine:3.19
+        shell: sh
+        run: echo "finalize"

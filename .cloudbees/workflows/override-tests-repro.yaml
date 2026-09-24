@@ -1,0 +1,15 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: cbp-21097 parallel sibling repro
+on:
+  workflow_dispatch: {}
+
+jobs:
+  testoverride_1:
+    uses: scherler/cbp-21097-parallel-rw-repro/.cloudbees/workflows/reusable-gate.yaml@main
+
+  testoverride:
+    uses: scherler/cbp-21097-parallel-rw-repro/.cloudbees/workflows/reusable-fail.yaml@main
+
+  testoverride_2:
+    uses: scherler/cbp-21097-parallel-rw-repro/.cloudbees/workflows/reusable-gate.yaml@main

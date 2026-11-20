@@ -10,4 +10,3 @@ Modeled directly on the real QA repro (mluzcabrera/testreusableworkflows3
 override-tests.yaml + mluzcabrera/reusableworkflowsrepo reusable3.yaml,
 both public), reduced to a single self-contained repo.
 
-trigger
